@@ -1,0 +1,32 @@
+{
+  "name": "taskensure-api",
+  "version": "1.0.0",
+  "description": "MERN application Lambda functions",
+  "main": "handler.js",
+  "scripts": {
+    "start": "serverless offline",
+    "deploy": "serverless deploy",
+    "remove": "serverless remove",
+    "logs": "serverless logs -f api"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.5.0",
+    "serverless-http": "^3.2.0"
+  },
+  "devDependencies": {
+    "serverless": "^3.38.0",
+    "serverless-dotenv-plugin": "^6.0.0",
+    "serverless-offline": "^13.9.0"
+  },
+  "keywords": [
+    "serverless",
+    "lambda",
+    "express",
+    "mern"
+  ],
+  "author": "",
+  "license": "MIT"
+}

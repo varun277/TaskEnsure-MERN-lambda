@@ -1,0 +1,39 @@
+.cardStyle {
+    width: 100%;
+    height: 210px;
+    max-height: 210px;
+}
+
+.titleStyle {
+    width: 100%;
+    text-wrap: wrap;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.descriptionStyle {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* number of lines to show */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.dateStyle {
+    color: var(--elevate2);
+    font-size: 13px;
+}
+
+.statusComplete {
+    text-decoration: line-through;
+}
+
+.tagStyle {
+    font-weight: 500;
+    font-size: 10px;
+}

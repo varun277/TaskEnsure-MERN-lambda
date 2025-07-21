@@ -1,0 +1,66 @@
+service: my-todo-api
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+  stage: ${opt:stage, 'dev'}  # Allow stage override via --stage flag
+  environment:
+    NODE_ENV: ${self:provider.stage}
+    MONGODB_URI: ${file(config/env.yml):${self:provider.stage}.MONGODB_URI}
+    # Add any other environment variables your app needs
+  
+  # Add IAM role permissions if needed
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - logs:CreateLogGroup
+        - logs:CreateLogStream
+        - logs:PutLogEvents
+      Resource: "*"
+
+functions:
+  api:
+    handler: handler.api
+    timeout: 30
+    events:
+      - http:
+          path: /{proxy+}
+          method: ANY
+          cors:
+            origin: 
+              - http://localhost:5173
+              - https://taskensure-mern-todo.netlify.app     # If using Netlify
+            credentials: true
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+      - http:
+          path: /
+          method: ANY
+          cors:
+            origin: 
+              - http://localhost:5173
+              - https://taskensure-mern-todo.netlify.app     # If using Netlify
+            credentials: true
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+
+custom:
+  serverless-offline:
+    httpPort: 3001
