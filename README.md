@@ -64,7 +64,7 @@ TaskEnsure is a feature-rich Todo application that helps users manage their task
 
 3. **Install Backend Dependencies**
    ```bash
-   cd ../server
+   cd ../lambda-functions/taskEnsure-api
    npm install
    ```
 
@@ -141,7 +141,6 @@ taskensure-mern-lambda/
 - `POST /api/todos` - Create a new todo
 - `PUT /api/todos/:id` - Update a todo
 - `DELETE /api/todos/:id` - Delete a todo
-- `PATCH /api/todos/:id/toggle` - Toggle todo completion status
 
 ## 🤝 Contributing
 1. Fork the project
@@ -152,11 +151,6 @@ taskensure-mern-lambda/
 
 ## 📄 License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👤 Author
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
 
 ## 🙏 Acknowledgments
 - React.js community for the amazing framework
